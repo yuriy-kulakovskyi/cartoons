@@ -1,0 +1,104 @@
+@import '../../mixins.scss';
+@import '../../variables.scss';
+
+@font-face {
+  font-family: stoney;
+  src: url("../../assets/stoney-billy/STONB___.TTF");
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  width: 100%;
+  padding: 20px;
+
+  &__nav {
+    width: 100%;
+    @include flexSpaceBetween();
+
+    &__logo {
+      font-family: stoney;
+      color: $yellow;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      row-gap: 2rem;
+
+      &__item {
+        &__link {
+          text-decoration: none;
+          color: #fff;
+          font-family: stoney;
+          transition: $transition;
+          font-size: 15px;
+
+          &:hover {
+            color: $yellow;
+          }
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        position: fixed;
+        left: 0;
+        background-color: hsl(210, 32%, 4%);
+        width: 100%;
+        padding-block: 3.5rem;
+        transition: top .4s;
+      }
+
+      @media screen and (min-width: 767px) {
+        flex-direction: row;
+        column-gap: 2rem;
+      }
+    }
+
+    &__close {
+      position: absolute;
+      right: 1.7rem;
+      cursor: pointer;
+      width: 40px; height: 40px;
+      padding-top: 25px;
+      transition: $transition;
+    }
+
+    &__toggle {
+      cursor: pointer;
+    }
+
+    @media screen and (min-width: 768px) {
+      &__close, &__toggle {
+        display: none;
+      }
+
+      &__logo {
+        font-size: 15px;
+      }
+    }
+
+    @media screen and (min-width: 992px) {
+      &__logo {
+        font-size: 20px;
+      }
+
+      &__list__item__link {
+        font-size: 18px;
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      &__logo {
+        font-size: 30px;
+      }
+
+      &__list__item__link {
+        font-size: 20px;
+      }
+    }
+  }
+}
