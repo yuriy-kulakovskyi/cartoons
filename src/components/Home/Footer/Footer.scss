@@ -25,18 +25,17 @@
   }
 
   @media screen and (min-width: 768px) {
-    top: 0;
-    height: 100%;
+    left: 85%; bottom: 0;
+    height: 100%; width: 15%;
+    @include flexCenter();
 
     &__container {
       height: 100%; width: 100%;
-      @include flexEnd();
+      @include flexCenter();
 
       &__social-links {
         flex-direction: column;
         height: 40%;
-        width: 30px;
-        margin: 0;
 
         &__item__link {
           svg {
