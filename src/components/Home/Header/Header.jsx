@@ -49,7 +49,7 @@ const Header = () => {
 
         {/* Toggle button */}
         <div className="header__nav__toggle" onClick={showMenu}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g fill="none" fillRule="evenodd" stroke="rgb(218, 218, 77)"><rect width="8" height="8" x="2.5" y="2.5" rx="2"/><rect width="8" height="8" x="13.5" y="2.5" rx="2"/><rect width="8" height="8" x="2.5" y="13.5" rx="2"/><rect width="8" height="8" x="13.5" y="13.5" rx="2"/></g></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g fill="none" stroke="rgb(218, 218, 77)"><rect width="8" height="8" x="2.5" y="2.5" rx="2"/><rect width="8" height="8" x="13.5" y="2.5" rx="2"/><rect width="8" height="8" x="2.5" y="13.5" rx="2"/><rect width="8" height="8" x="13.5" y="13.5" rx="2"/></g></svg>
         </div>
       </nav>
     </header>

@@ -10,7 +10,7 @@
   width: 100%;
   position: fixed;
   width: 100%;
-  padding: 20px;
+  padding: 20px 25px 0 0;
 
   &__nav {
     width: 100%;
@@ -21,6 +21,7 @@
       color: $yellow;
       font-size: 25px;
       text-align: center;
+      animation: 1s ease-in-out onLoadShadowYellow forwards;
     }
 
     &__list {
@@ -28,6 +29,7 @@
       flex-direction: column;
       text-align: center;
       row-gap: 2rem;
+      list-style-type: none;
 
       &__item {
         &__link {
@@ -36,9 +38,12 @@
           font-family: stoney;
           transition: $transition;
           font-size: 15px;
+          text-shadow: 0 0 10px #fff;
+          animation: 1s ease-in-out onLoadShadowWhite forwards;
 
           &:hover {
             color: $yellow;
+            text-shadow: 0 0 10px $yellow;
           }
         }
       }
@@ -100,5 +105,26 @@
         font-size: 20px;
       }
     }
+  }
+}
+
+@keyframes onLoadShadowYellow {
+  from {
+    text-shadow: 0 0 0px $yellow;
+  }
+
+  to {
+    text-shadow: 0 0 10px $yellow;
+  }
+}
+
+
+@keyframes onLoadShadowWhite {
+  from {
+    text-shadow: 0 0 0px #fff;
+  }
+
+  to {
+    text-shadow: 0 0 10px #fff;
   }
 }

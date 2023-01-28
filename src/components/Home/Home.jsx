@@ -1,14 +1,21 @@
 import React from 'react';
+import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import './Home.scss';
+import Main from './Main/Main';
 
 const Home = () => {
   return (
     // Home section
     <section className='home'>
-      {/* Background image  */}
-      <img src={process.env.PUBLIC_URL + './img/background.webp'} alt="Background" className='home__background' />
+      {/* Header */}
       <Header />
+
+      {/* Main */}
+      <Main />
+
+      {/* Footer */}
+      <Footer />
     </section>
   );
 }

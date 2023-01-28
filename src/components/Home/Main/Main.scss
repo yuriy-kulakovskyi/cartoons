@@ -1,0 +1,56 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.main {
+  width: 100%; min-height: 100vh;
+  @include flexCenter();
+
+  &__container {
+    @include flexCenter();
+    flex-direction: column;
+    gap: 15px;
+
+    &__title {
+      font-family: "Montserrat Alternates";
+      color: #fff;
+      font-size: 30px;
+      text-align: center;
+
+      span {
+        color: $yellow;
+      }
+    }
+
+    &__button {
+      background-color: $yellow;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 15px;
+      font-size: 25px;
+      font-family: "Montserrat Alternates";
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 0 10px $yellow;
+      transition: $transition;
+
+      &:hover {
+        background-color: transparent;
+        color: $yellow;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &__container {
+      @include flexCenterStart();
+
+      &__title {
+        font-size: 45px;
+        text-align: left;
+      }
+    }
+  }
+}

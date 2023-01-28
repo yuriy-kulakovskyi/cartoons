@@ -1,0 +1,49 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 2rem; left: 0;
+
+  &__container {
+    &__social-links {
+      list-style-type: none;
+      width: 40%;
+      margin: 0 auto;
+      @include flexSpaceBetween();
+
+      &__item__link {
+        color: #a5a1a1;
+        transition: $transition;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 0;
+    height: 100%;
+
+    &__container {
+      height: 100%; width: 100%;
+      @include flexEnd();
+
+      &__social-links {
+        flex-direction: column;
+        height: 40%;
+        width: 30px;
+        margin: 0;
+
+        &__item__link {
+          svg {
+            width: 35px; height: 35px;
+          }
+        }
+      }
+    }
+  }
+}

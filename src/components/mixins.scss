@@ -9,3 +9,15 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin flexCenterStart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@mixin flexEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
