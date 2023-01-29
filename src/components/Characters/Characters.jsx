@@ -18,9 +18,9 @@ const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState("");
 
-  const [selectedSpecy, setSelectedSpecy] = useState();
-  const [selectedStatus, setSelectedStatus] = useState();
-  const [selectedGender, setSelectedGender] = useState();
+  const [selectedSpecy, setSelectedSpecy] = useState("Human");
+  const [selectedStatus, setSelectedStatus] = useState("Alive");
+  const [selectedGender, setSelectedGender] = useState("Male");
 
   // const [inp, setInp] = useState("");
   // const [isOpen, setIsOpen] = useState(true);
@@ -96,13 +96,13 @@ const Characters = () => {
   }
 
   function getFilteredList() {
-    if (!selectedSpecy && !selectedStatus) {
+    if (!selectedSpecy && !selectedStatus && !selectedGender) {
       return characters;
     }
     return characters.filter((item) => item.species === selectedSpecy && item.status === selectedStatus && item.gender === selectedGender);
   }
 
-  const filteredList = useMemo(getFilteredList, [selectedSpecy, selectedStatus, characters]);
+  const filteredList = useMemo(getFilteredList, [selectedSpecy, selectedStatus, selectedGender, characters]);
 
   // const filteredSpecies = characters.filter(character => {
   //   return character.gender.toLowerCase().includes(specy.toLowerCase());
@@ -115,20 +115,17 @@ const Characters = () => {
 
         <div className="form">
           <select name="Species" className='form__select' onChange={handleSpecyChange}>
-            <option value="" disabled selected>Species</option>
-            <option value="Human">Human</option>
+            <option value="Human" selected>Human</option>
             <option value="Alien">Alien</option>
           </select>
 
           <select name="Status" className='form__select' onChange={handleStatusChange}>
-            <option value="" disabled selected>Status</option>
-            <option value="Alive">Alive</option>
+            <option value="Alive" selected>Alive</option>
             <option value="Dead">Dead</option>
           </select>
 
           <select name="Gender" className='form__select' onChange={handleGenderChange}>
-            <option value="" disabled selected>Gender</option>
-            <option value="Male">Male</option>
+            <option value="Male" selected>Male</option>
             <option value="Female">Female</option>
           </select>
         </div>
