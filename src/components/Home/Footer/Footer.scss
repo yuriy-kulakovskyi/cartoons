@@ -3,7 +3,7 @@
 
 .footer {
   width: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 2rem; left: 0;
 
   &__container {
@@ -35,7 +35,7 @@
 
       &__social-links {
         flex-direction: column;
-        height: 40%;
+        height: 50%;
 
         &__item__link {
           svg {

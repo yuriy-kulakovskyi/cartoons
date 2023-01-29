@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Header.scss';
+import aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Header = () => {
   const [visibility, setVisibility] = useState("-100%");
+  const header = useRef();
 
   const showMenu = () => {
     setVisibility("0");
@@ -12,16 +15,25 @@ const Header = () => {
     setVisibility("-100%");
   }
 
+  useEffect(() => {
+    aos.init();
+  }, []);
+
+  window.onscroll = () => {
+    window.scrollY >= 50 ? header.current.classList.add('bg-header')
+        : header.current.classList.remove('bg-header');
+  }
+
   return (
-    <header className="header">
+    <header className="header" ref={header}>
       {/* Container  */}
       <nav className="header__nav container">
-        <h1 className="header__nav__logo">Rick and Morty</h1>
+        <h1 className="header__nav__logo" data-aos="fade-right">Rick and Morty</h1>
 
         {/* Nav menu */}
-        <ul className="header__nav__list" style={{top: visibility}}>
+        <ul className="header__nav__list" data-aos="fade-left" style={{top: visibility}}>
           <li className="header__nav__list__item">
-            <a href="#" className='header__nav__list__item__link'>Characters</a>
+            <a href="#characters" className='header__nav__list__item__link'>Characters</a>
           </li>
           <li className="header__nav__list__item">
             <a href="#" className='header__nav__list__item__link'>Episodes</a>
@@ -48,7 +60,7 @@ const Header = () => {
         </svg>
 
         {/* Toggle button */}
-        <div className="header__nav__toggle" onClick={showMenu}>
+        <div className="header__nav__toggle" data-aos="fade-left" onClick={showMenu}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g fill="none" stroke="rgb(218, 218, 77)"><rect width="8" height="8" x="2.5" y="2.5" rx="2"/><rect width="8" height="8" x="13.5" y="2.5" rx="2"/><rect width="8" height="8" x="2.5" y="13.5" rx="2"/><rect width="8" height="8" x="13.5" y="13.5" rx="2"/></g></svg>
         </div>
       </nav>
