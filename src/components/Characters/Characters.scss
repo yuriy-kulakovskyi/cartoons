@@ -8,23 +8,25 @@
 
 .characters {
   width: 100%; min-height: 100vh;
-  background-color: rgb(12, 18, 21);
+  background-color: $background;
 
   &__container {
     padding: 2rem 0;
     @include flexCenter();
     flex-direction: column;
     gap: 2rem;
+    position: relative;
 
     .form {
       width: 100%;
-      @include flexSpaceBetween();
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
 
       &__select {
         background-color: $yellow;
         color: #fff;
         padding: 12px;
-        width: 100px;
         border: none;
         font-size: 15px;
         box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
@@ -34,6 +36,7 @@
         cursor: pointer;
         font-family: "Montserrat Alternates";
         border-radius: 10px;
+        text-align: center;
       }
     }
 

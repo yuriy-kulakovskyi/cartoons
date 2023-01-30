@@ -36,13 +36,13 @@ const Header = () => {
             <a href="#characters" className='header__nav__list__item__link'>Characters</a>
           </li>
           <li className="header__nav__list__item">
-            <a href="#" className='header__nav__list__item__link'>Episodes</a>
+            <a href="#episodes" className='header__nav__list__item__link'>Episodes</a>
           </li>
           <li className="header__nav__list__item">
-            <a href="#" className='header__nav__list__item__link'>Locations</a>
+            <a href="#locations" className='header__nav__list__item__link'>Locations</a>
           </li>
           <li className="header__nav__list__item">
-            <a href="#" className='header__nav__list__item__link'>My watch list</a>
+            <a href="#watchList" className='header__nav__list__item__link'>My watch list</a>
           </li>
         </ul>
 

@@ -18,12 +18,9 @@ const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState("");
 
-  const [selectedSpecy, setSelectedSpecy] = useState("Human");
-  const [selectedStatus, setSelectedStatus] = useState("Alive");
-  const [selectedGender, setSelectedGender] = useState("Male");
-
-  // const [inp, setInp] = useState("");
-  // const [isOpen, setIsOpen] = useState(true);
+  const [selectedSpecy, setSelectedSpecy] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
 
   const [open, setOpen] = React.useState(false);
 
@@ -70,19 +67,6 @@ const Characters = () => {
     }
   }
 
-  // const filteredNames = characters.filter(character => {
-  //   return character.name.toLowerCase().includes(inp.toLowerCase());
-  // })
-
-  // const itemClickHandler = e => {
-  //   setInp(e.target.textContent);
-  //   setIsOpen(!isOpen);
-  // }
-
-  // const inputClickHandler = () => {
-  //   setIsOpen(true);
-  // }
-
   const handleSpecyChange = e => {
     setSelectedSpecy(e.target.value);
   }
@@ -96,17 +80,26 @@ const Characters = () => {
   }
 
   function getFilteredList() {
-    if (!selectedSpecy && !selectedStatus && !selectedGender) {
+    if (selectedSpecy === "" && selectedStatus === "" && selectedGender === "") {
       return characters;
+    } else if (selectedSpecy === "") {
+      return characters.filter((item) => item.status === selectedStatus && item.gender === selectedGender);
+    } else if (selectedStatus === "") {
+      return characters.filter((item) => item.species === selectedSpecy && item.gender === selectedGender);
+    } else if (selectedGender === "") {
+      return characters.filter((item) => item.species === selectedSpecy && item.status === selectedStatus);
     }
+
     return characters.filter((item) => item.species === selectedSpecy && item.status === selectedStatus && item.gender === selectedGender);
   }
 
-  const filteredList = useMemo(getFilteredList, [selectedSpecy, selectedStatus, selectedGender, characters]);
+  const ShowAll = () => {
+    setSelectedSpecy("");
+    setSelectedStatus("");
+    setSelectedGender("");
+  }
 
-  // const filteredSpecies = characters.filter(character => {
-  //   return character.gender.toLowerCase().includes(specy.toLowerCase());
-  // })
+  let filteredList = useMemo(getFilteredList, [selectedSpecy, selectedStatus, selectedGender, characters]);
 
   return (
     <section className="characters" id='characters'>
@@ -128,6 +121,8 @@ const Characters = () => {
             <option value="Male" selected>Male</option>
             <option value="Female">Female</option>
           </select>
+
+          <button className='form__select' onClick={ShowAll}>Show all</button>
         </div>
 
         {/* Pagination */}
@@ -143,7 +138,7 @@ const Characters = () => {
                       Name: <span>{item.name}</span>
                     </li>
                     <li>
-                      Watch <a href={item.episode[0]}>episode</a>
+                      Watch <a target="_blank" rel="noreferrer" href={item.episode[0]}>episode</a>
                     </li>
                     <li>
                       Gender: <span>{item.gender}</span>
