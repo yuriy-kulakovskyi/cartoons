@@ -23,7 +23,7 @@ const Main = () => {
                 backSpeed={100}
                 loop >
             </Typed></h3>
-        <a href='#' className="main__container__button" data-aos="fade-up">Get started</a>
+        <a href='#characters' className="main__container__button" data-aos="fade-up">Get started</a>
       </div>
     </main>
   );

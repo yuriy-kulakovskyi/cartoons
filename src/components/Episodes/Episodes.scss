@@ -7,7 +7,7 @@
 }
 
 .episodes {
-  width: 100%; min-height: 100vh;
+  width: 100%;
   background-color: $background;
 
   &__container {
@@ -71,6 +71,7 @@
 
     &__episodes-wrap {
       width: 100%;
+      padding: 0 2rem;
 
       &__episode {
         width: 100%;
@@ -86,19 +87,19 @@
         transition: $transition;
 
         &:hover {
-          opacity: .7;
+          opacity: .7!important;
         }
 
         &__number, &__name {
           font-family: "Montserrat Alternates";
           font-weight: 800;
           color: #fff;
-          font-size: 25px;
+          font-size: 21px;
         }
 
         &__name {
           font-weight: 500;
-          font-size: 19px;
+          font-size: 16px;
 
           span {
             font-family: "Montserrat Alternates";
@@ -110,7 +111,7 @@
           font-family: "Montserrat Alternates";
           font-weight: 600;
           color: #fff;
-          font-size: 19px;
+          font-size: 16px;
 
           span {
             font-family: "Montserrat Alternates";
@@ -122,12 +123,13 @@
           font-family: "Montserrat Alternates";
           font-weight: 800;
           color: #fff;
-          font-size: 18px;
+          font-size: 15px;
 
           a {
             text-decoration: none;
             color: $background;
             font-family: "Montserrat Alternates";
+            opacity: .7;
 
             &:hover {
               text-shadow: 0 0 1px $background;
@@ -168,6 +170,6 @@
 
 }
 
-.characters__container__navigation {
+.container__navigation {
   margin-bottom: 1.5rem;
 }

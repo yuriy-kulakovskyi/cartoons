@@ -1,8 +1,9 @@
-import './App.css';
+import './App.scss';
 import React from 'react';
 import Home from './components/Home/Home';
 import Characters from './components/Characters/Characters';
 import Episodes from './components/Episodes/Episodes';
+import Locations from './components/Locations/Locations';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
 
       {/* Episodes section */}
       <Episodes />
+
+      {/* Locations section  */}
+      <Locations />
     </div>
   );
 }

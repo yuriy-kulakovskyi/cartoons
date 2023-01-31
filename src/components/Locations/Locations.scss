@@ -1,0 +1,171 @@
+// Variables and mixins imports
+@import "../variables.scss";
+@import "../mixins.scss";
+
+// font family Stoney face
+@font-face {
+  font-family: stoney;
+  src: url("..//assets/stoney-billy/STONB___.TTF");
+}
+
+.locations {
+  width: 100%;
+  background-color: $background;
+
+  &__container {
+    padding: 2rem 0;
+    @include flexCenter();
+    flex-direction: column;
+    gap: 30px;
+
+    &__title {
+      font-family: stoney;
+      color: $yellow;
+      text-shadow: 0 0 5px $yellow;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    // Filter styles 
+    &__filters {
+      width: 100%;
+      @include flexCenter();
+      flex-direction: column;
+
+      // Input styles
+      &__input {
+        background-color: transparent;
+        border: 1px solid $yellow;
+        box-shadow: 0 0 5px $yellow;
+        color: $yellow;
+        border-radius: 10px;
+        font-family: "Montserrat Alternates";
+        font-size: 20px;
+        padding: 10px 20px;
+
+        &::placeholder {
+          color: #fff;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      // Dropdown styles 
+      &__dropdown {
+        position: relative;
+        background-color: #fff;
+        list-style-type: none;
+
+        &__item {
+          padding: 20px;
+          font-family: "Montserrat Alternates";
+
+          &:hover {
+            background-color: $yellow;
+            cursor: pointer;
+          }
+        }
+      }
+
+      // Select styles
+      &__select, &__button {
+        max-width: 100px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        background-color: $yellow;
+        font-family: "Montserrat Alternates";
+        font-weight: 800;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+      }
+
+      &__button {
+        min-width: 150px;
+        padding: 15px 0;
+      }
+    }
+
+    .selects {
+      width: 100%;
+      @include flexCenter();
+      margin: 20px 0;
+      gap: 30px;
+    }
+
+    &__list {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      width: 90%;
+
+      &__item {
+        width: 100%;
+        background-color: $yellow;
+        border-radius: 10px;
+        padding: 1rem 2rem;
+        box-shadow: 0 0 15px $yellow;
+        cursor: pointer;
+        transition: $transition!important;
+
+        &:hover {
+          opacity: .7!important;
+        }
+
+        &__name {
+          color: #fff;
+          text-align: center;
+          font-family: "Montserrat Alternates";
+          font-weight: 700;
+          font-size: 25px;
+        }
+
+        &__type, &__dimension, &__url {
+          color: #fff;
+          font-family: "Montserrat Alternates";
+          font-weight: 600;
+          font-size: 20px;
+          margin-top: 10px;
+
+          span {
+            color: #fff;
+            font-family: "Montserrat Alternates";
+            font-weight: 800;
+            font-size: 20px;
+          }
+
+          a {
+            color: $background;
+            text-decoration: none;
+            font-family: "Montserrat Alternates";
+          }
+        }
+      }
+    }
+  }
+
+  // Media queries
+  @media screen and (min-width: 992px) {
+    &__container {
+      &__list {
+        &__item {
+          &__name {
+            font-size: 30px;
+          }
+
+          &__type, &__dimension, &__url {
+            font-size: 30px;
+
+            span {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

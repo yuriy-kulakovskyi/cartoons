@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Characters.scss';
 import aos from 'aos';
 import 'aos/dist/aos.css';
@@ -11,6 +11,7 @@ import DialogActions from '@mui/material/DialogActions';
 // Pagination links
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import Filter from './Filter/Filter';
 
 const Characters = () => {
   const [pages, setPages] = useState(0);
@@ -18,11 +19,19 @@ const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState("");
 
-  const [selectedSpecy, setSelectedSpecy] = useState("");
-  const [selectedStatus, setSelectedStatus] = useState("");
-  const [selectedGender, setSelectedGender] = useState("");
-
   const [open, setOpen] = React.useState(false);
+
+  const [speciesOpt, setSpeciesOpt] = useState([]);
+  const [statusOpt, setStatusOpt] = useState([]);
+  const [genderOpt, setGenderOpt] = useState([]);
+
+  let [speciesOptUpd, setSpeciesOptUpd] = useState([]);
+  let [statusOptUpd, setStatusOptUpd] = useState([]);
+  let [genderOptUpd, setGenderOptUpd] = useState([]);
+
+  const [species, setSpecies] = useState([]);
+  const [status, setStatus] = useState([]);
+  const [gender, setGender] = useState([]);
 
   const handleClickOpen = props => {
     setOpen(true);
@@ -35,14 +44,26 @@ const Characters = () => {
 
   useEffect(() => {
     aos.init();
-    fetch("https://rickandmortyapi.com/api/character")
+    fetch(`https://rickandmortyapi.com/api/character/?species=${species}&status=${status}&gender=${gender}`)
       .then(response => response.json())
       .then(data => {
         setPages(data.info.pages);
         setNext(data.info.next);
         setCharacters(data.results);
+
+        data.results.map((item) => {
+          setSpeciesOpt(speciesOpt.push(item.species));
+          setStatusOpt(statusOpt.push(item.status));
+          setGenderOpt(genderOpt.push(item.gender));
+          return item;
+        });
+
+        setSpeciesOptUpd([...new Set(speciesOpt)]);
+        setStatusOptUpd([...new Set(statusOpt)]);
+        setGenderOptUpd([...new Set(genderOpt)]);
       })
-  }, [])
+  }, [genderOpt, speciesOpt, statusOpt, gender, species, status]);
+
 
   const [page, setPage] = useState(1);
   const PaginationChange = (event, page) => {
@@ -67,67 +88,25 @@ const Characters = () => {
     }
   }
 
-  const handleSpecyChange = e => {
-    setSelectedSpecy(e.target.value);
-  }
-
-  const handleStatusChange = e => {
-    setSelectedStatus(e.target.value);
-  }
-
-  const handleGenderChange = e => {
-    setSelectedGender(e.target.value);
-  }
-
-  function getFilteredList() {
-    if (selectedSpecy === "" && selectedStatus === "" && selectedGender === "") {
-      return characters;
-    } else if (selectedSpecy === "") {
-      return characters.filter((item) => item.status === selectedStatus && item.gender === selectedGender);
-    } else if (selectedStatus === "") {
-      return characters.filter((item) => item.species === selectedSpecy && item.gender === selectedGender);
-    } else if (selectedGender === "") {
-      return characters.filter((item) => item.species === selectedSpecy && item.status === selectedStatus);
-    }
-
-    return characters.filter((item) => item.species === selectedSpecy && item.status === selectedStatus && item.gender === selectedGender);
-  }
-
-  const ShowAll = () => {
-    setSelectedSpecy("");
-    setSelectedStatus("");
-    setSelectedGender("");
-  }
-
-  let filteredList = useMemo(getFilteredList, [selectedSpecy, selectedStatus, selectedGender, characters]);
-
   return (
     <section className="characters" id='characters'>
       <div className="characters__container container">
         <h1 className="characters__container__title">Characters</h1>
 
-        <div className="form">
-          <select name="Species" className='form__select' onChange={handleSpecyChange}>
-            <option value="Human" selected>Human</option>
-            <option value="Alien">Alien</option>
-          </select>
+        {/* Filter */}
+        <Filter
+          species={speciesOptUpd}
+          status={statusOptUpd}
+          gender={genderOptUpd}
 
-          <select name="Status" className='form__select' onChange={handleStatusChange}>
-            <option value="Alive" selected>Alive</option>
-            <option value="Dead">Dead</option>
-          </select>
-
-          <select name="Gender" className='form__select' onChange={handleGenderChange}>
-            <option value="Male" selected>Male</option>
-            <option value="Female">Female</option>
-          </select>
-
-          <button className='form__select' onClick={ShowAll}>Show all</button>
-        </div>
+          setSpecies={setSpecies}
+          setStatus={setStatus}
+          setGender={setGender}
+        />
 
         {/* Pagination */}
         <Stack spacing={2} className="characters__container__pagination">
-          {filteredList.map((item, key) => {
+          {characters.map((item, key) => {
             return (
               <div data-aos="fade-right" className='characters__container__pagination__character' key={key}>
                 <button variant="outlined" className='characters__container__pagination__character__button' onClick={handleClickOpen}></button>
@@ -138,7 +117,7 @@ const Characters = () => {
                       Name: <span>{item.name}</span>
                     </li>
                     <li>
-                      Watch <a target="_blank" rel="noreferrer" href={item.episode[0]}>episode</a>
+                      Watch the <a target="_blank" rel="noreferrer" href={item.episode[0]}>episode</a>
                     </li>
                     <li>
                       Gender: <span>{item.gender}</span>
@@ -186,7 +165,7 @@ const Characters = () => {
         </Stack>
 
         <Pagination
-          className='characters__container__navigation'
+          className='characters__container__navigation container__navigation'
           count={pages}
           page={page}
           onChange={PaginationChange}
