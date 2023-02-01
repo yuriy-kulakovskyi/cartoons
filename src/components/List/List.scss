@@ -1,0 +1,144 @@
+// Variables
+@import "../variables.scss";
+@import "../mixins.scss";
+
+// Stoney font 
+@font-face {
+  font-family: stoney;
+  src: url("..//assets/stoney-billy/STONB___.TTF");
+}
+
+// My Watch List section
+.watchList {
+  width: 100%; min-height: 100vh;
+  background-color: $background;
+
+  // Container
+  &__container {
+    @include flexCenter();
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 2rem;
+
+    // Title
+    &__title {
+      font-family: stoney;
+      color: $yellow;
+      text-shadow: 0 0 10px $yellow;
+    }
+
+    &__todo {
+      @include flexCenterStart();
+      flex-direction: column;
+      gap: 20px;
+
+      &__item {
+        background-color: $yellow;
+        width: 90%;
+        @include flexSpaceBetween();
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px $yellow;
+
+        &__checkbox {
+          border: 3px solid #fff;
+          width: 18px; height: 15px;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: $transition;
+        }
+
+        &__checked-false {
+          border-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%) 1;
+        }
+
+        &__checked-true {
+          border-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%) 1;        
+        }
+
+        &__name {
+          width: 100%;
+          padding-left: 1rem;
+          color: #fff;
+          font-family: "Montserrat Alternates";
+          font-weight: 800;
+          font-size: 18px;
+          cursor: pointer;
+        }
+
+        &__delete {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          transition: $transition;
+
+          svg {
+            fill: rgb(128, 128, 128);
+          }
+
+          &:hover {
+            svg {
+              fill: #ffb13b;
+            }
+          }
+        }
+      }
+    }
+
+    .row {
+      width: 100%;
+      @include flexCenter();
+      gap: 1rem;
+    }
+
+    &__input {
+      background-color: transparent;
+      border: 1px solid #fff;
+      box-shadow: 0 0 5px #fff;
+      padding: 1rem 1.5rem;
+      font-family: "Montserrat Alternates";
+      font-size: 17px;
+      border-radius: 10px;
+      color: $yellow;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__button {
+      background-color: #fff;
+      border-radius: 100%;
+      width: 40px; height: 40px;
+      border: none;
+      color: $yellow;
+      font-size: 30px;
+      font-family: 'Montserrat Alternates';
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        box-shadow: 0 0 5px #fff;
+      }
+    }
+
+    &__dropdown {
+      width: 100%;
+      list-style-type: none;
+      background-color: #fff;
+
+      &__item {
+        padding: 1rem 1.5rem;
+        font-size: 17px;
+        font-family: 'Montserrat Alternates';
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $yellow;
+        }
+      }
+    }
+  }
+}

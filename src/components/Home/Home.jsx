@@ -7,7 +7,7 @@ import Main from './Main/Main';
 const Home = () => {
   return (
     // Home section
-    <section className='home'>
+    <section className='home' id="home">
       {/* Header */}
       <Header />
 

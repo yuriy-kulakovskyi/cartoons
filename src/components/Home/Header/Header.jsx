@@ -28,7 +28,7 @@ const Header = () => {
     <header className="header" ref={header}>
       {/* Container  */}
       <nav className="header__nav container">
-        <h1 className="header__nav__logo" data-aos="fade-right">Rick and Morty</h1>
+        <a href='#home' className="header__nav__logo" data-aos="fade-right">Rick and Morty</a>
 
         {/* Nav menu */}
         <ul className="header__nav__list" data-aos="fade-left" style={{top: visibility}}>
