@@ -31,10 +31,11 @@
       @include flexCenterStart();
       flex-direction: column;
       gap: 20px;
+      width: 90%;
 
       &__item {
         background-color: $yellow;
-        width: 90%;
+        width: 100%;
         @include flexSpaceBetween();
         padding: 1rem 2rem;
         border-radius: 10px;
