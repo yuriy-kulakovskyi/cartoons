@@ -27,6 +27,16 @@
       text-shadow: 0 0 10px $yellow;
     }
 
+    // noTodo
+    &__noTodo {
+      color: #fff;
+      font-family: "Montserrat Alternates";
+      font-size: 22px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    // ToDo
     &__todo {
       @include flexCenterStart();
       flex-direction: column;

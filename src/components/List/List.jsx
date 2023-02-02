@@ -71,6 +71,9 @@ const List = () => {
         {/* Title */}
         <h1 className="watchList__container__title">my watch list</h1>
 
+        <h3 className="watchList__container__noTodo">{sortedTodo[0] === undefined ? "Add episodes you want to watch later" : ""}</h3>
+
+        {/* ToDo */}
         <div className="watchList__container__todo">
           {sortedTodo ? sortedTodo.map((item, idx) => {
             return <Todo 
