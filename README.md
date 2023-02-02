@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://cartoons-zeta.vercel.app/"><img style="border-radius: 100%" width="100" height="100" alt="Logo" src="https://w7.pngwing.com/pngs/277/446/png-transparent-rick-and-morty-illustratrion-rick-sanchez-morty-smith-rick-and-morty-season-1-television-show-youtube-rick-and-morty-television-logo-computer-wallpaper.png"></a>
+  <a href="https://cartoons-zeta.vercel.app/"><img style="border-radius: 100%" width="100" height="100" alt="Logo" src="https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-rick-face-kushmastafresh-deviantart-19.png"></a>
   <br>
   Rick and Morty
   <br>
