@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a target="_blank" href="https://cartoons-zeta.vercel.app/"><img style="border-radius: 100%" width="100" height="100" alt="Logo" src="https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-rick-face-kushmastafresh-deviantart-19.png"></a>
+  <a href="https://cartoons-zeta.vercel.app/"><img style="border-radius: 100%" width="100" height="100" alt="Logo" src="https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-rick-face-kushmastafresh-deviantart-19.png"></a>
   <br>
   Rick and Morty
   <br>
