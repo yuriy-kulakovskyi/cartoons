@@ -47,6 +47,10 @@
           border-radius: 10px;
           cursor: pointer;
           transition: $transition;
+
+          &:hover {
+            border-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%) 1;
+          }
         }
 
         &__checked-false {
