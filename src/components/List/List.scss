@@ -44,21 +44,24 @@
         &__checkbox {
           border: 3px solid #fff;
           width: 18px; height: 15px;
-          border-radius: 10px;
           cursor: pointer;
           transition: $transition;
-
-          &:hover {
-            border-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%) 1;
-          }
         }
 
         &__checked-false {
           border-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%) 1;
+
+          &:hover {
+            border-image: linear-gradient(-147deg, #FFE53B 0%, #FF2525 74%) 1;
+          }
         }
 
         &__checked-true {
-          border-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%) 1;        
+          border-image: linear-gradient(-47deg, #85FFBD 0%, #FFFB7D 100%) 1; 
+          
+          &:hover {
+            border-image: linear-gradient(47deg, #85FFBD 0%, #FFFB7D 100%) 1; 
+          }
         }
 
         &__name {
