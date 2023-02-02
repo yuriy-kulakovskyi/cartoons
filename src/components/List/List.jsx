@@ -60,6 +60,8 @@ const List = () => {
     localStorage.setItem("todoList", JSON.stringify(newArray));
   }
 
+  const sortedTodo = todoList.sort((a, b) => b.isChecked - a.isChecked);
+
   // HTML
   return (
     <section className="watchList" id="watchList">
@@ -70,7 +72,7 @@ const List = () => {
         <h1 className="watchList__container__title">my watch list</h1>
 
         <div className="watchList__container__todo">
-          {todoList ? todoList.map((item, idx) => {
+          {sortedTodo ? sortedTodo.map((item, idx) => {
             return <Todo 
                       key={`_todo_${idx}`} 
                       name={item.name} i
@@ -107,7 +109,7 @@ const List = () => {
 
           {/* Dropdown menu */}
           <ul className="watchList__container__dropdown">
-            {name && isOpen ? episodes.map((item, key) => {
+            {episodes && name && isOpen ? episodes.map((item, key) => {
               return (
                 <li 
                   className="watchList__container__dropdown__item"
