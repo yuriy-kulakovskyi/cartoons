@@ -73,22 +73,6 @@ const List = () => {
 
         <h3 className="watchList__container__noTodo">{sortedTodo[0] === undefined ? "Add episodes you want to watch later" : ""}</h3>
 
-        {/* ToDo */}
-        <div className="watchList__container__todo">
-          {sortedTodo ? sortedTodo.map((item, idx) => {
-            return <Todo 
-                      key={`_todo_${idx}`} 
-                      name={item.name} i
-                      isChecked={item.isChecked} 
-                      toggleCheckedTodo={toggleCheckedTodo}
-                      deleteTodo={deleteTodo}
-                      idx={idx}
-                    />
-          })
-          : null
-        }
-        </div>
-
         {/* Input to search episodes from the API */}
         <div className="col">
           <div className="row">
@@ -126,6 +110,22 @@ const List = () => {
             : null
           }
           </ul>
+        </div>
+
+        {/* ToDo */}
+        <div className="watchList__container__todo">
+          {sortedTodo ? sortedTodo.map((item, idx) => {
+            return <Todo 
+                      key={`_todo_${idx}`} 
+                      name={item.name} i
+                      isChecked={item.isChecked} 
+                      toggleCheckedTodo={toggleCheckedTodo}
+                      deleteTodo={deleteTodo}
+                      idx={idx}
+                    />
+          })
+          : null
+        }
         </div>
       </div>
     </section>

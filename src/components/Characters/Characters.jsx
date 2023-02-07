@@ -3,27 +3,21 @@ import './Characters.scss';
 import aos from 'aos';
 import 'aos/dist/aos.css';
 
-// Popup links
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-
 // Pagination links
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Filter from './Filter/Filter';
+import Popup from './Popup/Popup';
+
+// API link
+const API = "https://rickandmortyapi.com/api/character/"
 
 const Characters = () => {
   const [pages, setPages] = useState(0);
-  const [next, setNext] = useState("");
   const [characters, setCharacters] = useState([]);
   const [info, setInfo] = useState("");
 
-  const [open, setOpen] = React.useState(false);
-
-  const [speciesOpt, setSpeciesOpt] = useState([]);
-  const [statusOpt, setStatusOpt] = useState([]);
-  const [genderOpt, setGenderOpt] = useState([]);
+  const [isOpen, setOpen] = useState(false);
 
   let [speciesOptUpd, setSpeciesOptUpd] = useState([]);
   let [statusOptUpd, setStatusOptUpd] = useState([]);
@@ -32,29 +26,38 @@ const Characters = () => {
   const [species, setSpecies] = useState([]);
   const [status, setStatus] = useState([]);
   const [gender, setGender] = useState([]);
+  
+  const [page, setPage] = useState(1);
 
   const handleClickOpen = props => {
     setOpen(true);
     setInfo(props.target.nextSibling.firstChild.innerHTML);
+    document.body.style.overflow = 'hidden';
+    document.querySelector(".hide").style.opacity = '.5';
   };
 
   const handleClose = () => {
     setOpen(false);
+    document.body.style.overflow = 'scroll';
+    document.querySelector(".hide").style.opacity = '1';
   };
 
   useEffect(() => {
     aos.init();
-    fetch(`https://rickandmortyapi.com/api/character/?species=${species}&status=${status}&gender=${gender}`)
+    fetch(API + `?page=${page}&species=${species}&status=${status}&gender=${gender}`)
       .then(response => response.json())
       .then(data => {
         setPages(data.info.pages);
-        setNext(data.info.next);
         setCharacters(data.results);
 
+        const speciesOpt = [];
+        const statusOpt = [];
+        const genderOpt = [];
+
         data.results.map((item) => {
-          setSpeciesOpt(speciesOpt.push(item.species));
-          setStatusOpt(statusOpt.push(item.status));
-          setGenderOpt(genderOpt.push(item.gender));
+          speciesOpt.push(item.species);
+          statusOpt.push(item.status);
+          genderOpt.push(item.gender);
           return item;
         });
 
@@ -62,30 +65,18 @@ const Characters = () => {
         setStatusOptUpd([...new Set(statusOpt)]);
         setGenderOptUpd([...new Set(genderOpt)]);
       })
-  }, [genderOpt, speciesOpt, statusOpt, gender, species, status]);
+  }, [gender, species, status, page]);
 
 
-  const [page, setPage] = useState(1);
   const PaginationChange = (event, page) => {
     setPage(page);
-
-    fetch(next.slice(0, next.indexOf("=") + 1) + page)
-      .then(response => response.json())
-      .then(data => {
-        setPages(data.info.pages);
-        setNext(data.info.next);
-        setCharacters(data.results);
-      })
-
-    if (page === pages) {
-      fetch(next.slice(0, next.indexOf("=") + 1) + page)
-        .then(response => response.json())
-        .then(data => {
-          setPages(data.info.pages);
-          setNext(data.info.prev);
-          setCharacters(data.results);
-        })
-    }
+  
+    fetch(API + `?page=${page}&species=${species}&status=${status}&gender=${gender}`)
+    .then(response => response.json())
+    .then(data => {
+      setPages(data.info.pages);
+      setCharacters(data.results);
+    })
   }
 
   return (
@@ -104,14 +95,13 @@ const Characters = () => {
           setGender={setGender}
         />
 
-        {/* Pagination */}
-        <Stack spacing={2} className="characters__container__pagination">
+        <Stack spacing={2} className="characters__container__pagination hide">
           {characters.map((item, key) => {
             return (
               <div data-aos="fade-right" className='characters__container__pagination__character' key={key}>
                 <button variant="outlined" className='characters__container__pagination__character__button' onClick={handleClickOpen}></button>
-                <div className="characters__container__pagination__character__allInfo">
-                  <ul style={{display: "none"}}>
+                <div className="characters__container__pagination__character__allInfo" style={{ display: "none" }}>
+                  <ul>
                     <img src={item.image} alt={key + "image"} />
                     <li>
                       Name: <span>{item.name}</span>
@@ -142,28 +132,21 @@ const Characters = () => {
                   <p className="characters__container__pagination__character__addInfo__status">Status <span>{item.status}</span></p>
                   <p className="characters__container__pagination__character__addInfo__gender">Gender <span>{item.gender}</span></p>
                 </div>
-
-
-                {/* Popup */}
-                <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="draggable-dialog-title"
-                  className='popup'
-                >
-                  <div className='popup__wrapper' dangerouslySetInnerHTML={{ __html: info }} />
-
-                  <DialogActions>
-                    <Button className='popup__close' autoFocus onClick={handleClose}>
-                      Ok
-                    </Button>
-                  </DialogActions>
-                </Dialog>
               </div>
             )
           })}
         </Stack>
 
+
+
+        {/* Popup */}
+        <Popup
+          isOpen={isOpen}
+          info={info}
+          handleClose={handleClose}
+        />
+
+        {/* Pagination */}
         <Pagination
           className='characters__container__navigation container__navigation'
           count={pages}

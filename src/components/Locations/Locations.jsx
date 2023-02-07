@@ -10,11 +10,7 @@ import Filter from './Filter/Filter';
 const Locations = () => {
   const [pagesCount, setPagesCount] = useState(1);
   const [page, setPage] = useState(1);
-  const [next, setNext] = useState("");
   const [locations, setLocations] = useState([]);
-
-  const [typeOpt, setTypeOpt] = useState([]);
-  const [dimensionOpt, setDimensionOpt] = useState([]);
 
   let [typeOptUpd, setTypeOptUpd] = useState([]);
   let [dimensionOptUpd, setDimensionOptUpd] = useState([]);
@@ -24,44 +20,35 @@ const Locations = () => {
   const [dimension, setDimension] = useState("");
 
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/location/?name=${name}&type=${type}&dimension=${dimension}`)
+    fetch(`https://rickandmortyapi.com/api/location/?page=${page}name=${name}&type=${type}&dimension=${dimension}`)
     .then(res => res.json())
     .then(data => {
       setPagesCount(data.info.pages);
-      setNext(data.info.next);
       setLocations(data.results);
 
+      const typeOpt = [];
+      const dimensionOpt = [];
+
       data.results.map((item) => {
-        setTypeOpt(typeOpt.push(item.type));
-        setDimensionOpt(dimensionOpt.push(item.dimension));
+        typeOpt.push(item.type);
+        dimensionOpt.push(item.dimension);
         return item;
       });
 
       setTypeOptUpd([...new Set(typeOpt)]);
       setDimensionOptUpd([...new Set(dimensionOpt)]);
     })
-  }, [dimension, dimensionOpt, name, type, typeOpt]);
+  }, [dimension, name, type, page]);
 
   const PaginationChange = (event, page) => {
     setPage(page);
 
-    fetch(next.slice(0, next.indexOf("=") + 1) + page)
+    fetch(`https://rickandmortyapi.com/api/location/?page=${page}&name=${name}&type=${type}&dimension=${dimension}`)
       .then(response => response.json())
       .then(data => {
         setPagesCount(data.info.pages);
-        setNext(data.info.next);
         setLocations(data.results);
       })
-
-    if (page === pagesCount) {
-      fetch(next.slice(0, next.indexOf("=") + 1) + page)
-        .then(response => response.json())
-        .then(data => {
-          setPagesCount(data.info.pages);
-          setNext(data.info.prev);
-          setLocations(data.results);
-        })
-    }
   }
 
   // HTML

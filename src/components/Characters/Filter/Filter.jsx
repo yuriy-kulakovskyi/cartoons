@@ -1,6 +1,7 @@
 import React from "react";
 
 const Filter = filters => {
+
   const handleSelectChange = e => {
     if (e.target.name === "Species") {
       filters.setSpecies(e.target.value);
@@ -15,7 +16,7 @@ const Filter = filters => {
     }
   }
 
-  const handleClick = () => {
+  const handleSelectAll = () => {
     filters.setSpecies("");
     filters.setStatus("");
     filters.setGender("");
@@ -24,7 +25,7 @@ const Filter = filters => {
   return (
     <div className="form">
       <select name="Species" className='form__select' onChange={handleSelectChange}>
-        <option value="All" selected disabled>All</option>
+        <option value="" selected>Species</option>
         {filters.species.map((item, key) => {
           return (
             <option key={key} value={item}>{item}</option>
@@ -33,7 +34,7 @@ const Filter = filters => {
       </select>
   
       <select name="Status" className='form__select' onChange={handleSelectChange}>
-        <option value="All" selected disabled>All</option>
+        <option value="" selected>Status</option>
           {filters.status.map((item, key) => {
             return (
               <option key={key} value={item}>{item}</option>
@@ -42,7 +43,7 @@ const Filter = filters => {
       </select>
   
       <select name="Gender" className='form__select' onChange={handleSelectChange}>
-        <option value="All" selected disabled>All</option>
+        <option value="" selected>Gender</option>
           {filters.gender.map((item, key) => {
             return (
               <option key={key} value={item}>{item}</option>
@@ -50,7 +51,7 @@ const Filter = filters => {
           })}
       </select>
   
-      <button className='form__select' onClick={handleClick}>Show all</button>
+      <button className="form__button" onClick={handleSelectAll}>Select All</button>
     </div>
   );
 }

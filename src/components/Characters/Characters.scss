@@ -10,6 +10,10 @@
   width: 100%;
   background-color: $background;
 
+  .css-1p5q5e5-MuiStack-root>:not(style)+:not(style) {
+    margin-top: 0!important;
+  }
+
   &__container {
     padding: 2rem 0;
     @include flexCenter();
@@ -20,10 +24,10 @@
     .form {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 20px;
 
-      &__select {
+      &__select, &__button {
         background-color: $yellow;
         color: #fff;
         padding: 12px;
@@ -37,6 +41,7 @@
         font-family: "Montserrat Alternates";
         border-radius: 10px;
         text-align: center;
+        min-width: 200px;
       }
     }
 
@@ -54,12 +59,11 @@
       gap: 3rem;
 
       &__character {
-        width: 100%; min-width: 320px;
         @include flexSpaceBetween();
         flex-direction: column;
         background-color: $yellow;
         border-radius: 30px;
-        padding: 2.5rem 0;
+        padding: 2.5rem 20px;
         gap: 1rem;
         box-shadow: 0 0 30px $yellow;
         cursor: pointer;
@@ -93,6 +97,8 @@
         }
 
         &__addInfo {
+          width: 100%;
+
           &__name {
             font-family: "Montserrat Alternates";
             font-weight: 800;
@@ -126,6 +132,7 @@
   @media screen and (min-width: 768px) {
     .form {
       width: 50%;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     &__container__pagination {
@@ -135,6 +142,12 @@
 }
 
 .popup {
+  width: 450px;
+  position: fixed;
+  top: 15%;
+  background-color: #fff;
+  z-index: 10;
+  
   &__wrapper {
     padding: 3rem;
 
@@ -164,8 +177,27 @@
     }
   }
 
+  .row {
+    width: 100%;
+    @include flexEnd();
+    padding: 20px 40px;
+  }
+
   &__close {
-    background-color: $yellow!important;
-    color: #fff!important;
+    background-color: $yellow;
+    color: #fff;
+    border: none;
+    font-family: "Montserrat Alternates";
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid $yellow;
+    font-size: 16px;
+    transition: $transition;
+
+    &:hover {
+      background-color: #fff;
+      color: $yellow;
+    }
   }
 }
