@@ -33,7 +33,7 @@ const Characters = () => {
     setOpen(true);
     setInfo(props.target.nextSibling.firstChild.innerHTML);
     document.body.style.overflow = 'hidden';
-    document.querySelector(".hide").style.opacity = '.4';
+    document.querySelector(".hide").style.opacity = '.5';
   };
 
   const handleClose = () => {
