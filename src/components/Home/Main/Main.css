@@ -1,0 +1,47 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .main__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px; }
+    .main__container__title {
+      font-family: "Montserrat Alternates";
+      color: #fff;
+      font-size: 30px;
+      text-align: center; }
+      .main__container__title span {
+        color: #dada4d;
+        font-family: "Montserrat Alternates"; }
+    .main__container__button {
+      background-color: #dada4d;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 15px;
+      font-size: 25px;
+      font-family: "Montserrat Alternates";
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 0 10px #dada4d;
+      transition: all 0.4s !important; }
+      .main__container__button:hover {
+        background-color: transparent;
+        color: #dada4d; }
+  @media screen and (min-width: 768px) {
+    .main__container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; }
+      .main__container__title {
+        font-size: 45px;
+        text-align: left; } }
+
+/*# sourceMappingURL=Main.css.map */

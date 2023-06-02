@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Todo from './Todo/Todo';
-import "./List.scss";
+import "./List.css";
 
 const List = () => {
   // episodes state
@@ -69,9 +69,9 @@ const List = () => {
       <div className="watchList__container container">
 
         {/* Title */}
-        <h1 className="watchList__container__title">my watch list</h1>
+        <h1 className="container__title">my watch list</h1>
 
-        <h3 className="watchList__container__noTodo">{sortedTodo[0] === undefined ? "Add episodes you want to watch later" : ""}</h3>
+        <h3 className="container__noTodo">{sortedTodo[0] === undefined ? "Add episodes you want to watch later" : ""}</h3>
 
         {/* Input to search episodes from the API */}
         <div className="col">
@@ -80,14 +80,14 @@ const List = () => {
               type="text"
               value={name}
               placeholder="Search for episodes..."
-              className="watchList__container__input"
+              className="container__input"
               onChange={e => setName(e.target.value)}
               onClick={inputClickHandler}
             />
 
             {/* Add todo button */}
             <button 
-              className="watchList__container__button"
+              className="container__button"
               onClick={addTodo}
             >
               +
@@ -95,11 +95,11 @@ const List = () => {
           </div>
 
           {/* Dropdown menu */}
-          <ul className="watchList__container__dropdown">
+          <ul className="container__dropdown">
             {episodes && name && isOpen ? episodes.map((item, key) => {
               return (
                 <li 
-                  className="watchList__container__dropdown__item"
+                  className="dropdown__item"
                   key={key}
                   onClick={itemClickHandler}
                 >
@@ -113,7 +113,7 @@ const List = () => {
         </div>
 
         {/* ToDo */}
-        <div className="watchList__container__todo">
+        <div className="container__todo">
           {sortedTodo ? sortedTodo.map((item, idx) => {
             return <Todo 
                       key={`_todo_${idx}`} 

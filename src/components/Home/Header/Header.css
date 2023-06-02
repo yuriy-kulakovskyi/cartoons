@@ -1,0 +1,94 @@
+@font-face {
+  font-family: stoney;
+  src: url("../../../assets/fonts/stoney-billy/STONB___.TTF"); }
+.header {
+  width: 100%;
+  position: fixed;
+  width: 100%;
+  padding: 20px 25px 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s; }
+  .header__nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .header__nav__logo {
+      font-family: stoney;
+      color: #dada4d;
+      font-size: 25px;
+      text-align: center;
+      animation: 1s ease-in-out onLoadShadowYellow forwards;
+      text-decoration: none; }
+    .header__nav__list {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      row-gap: 2rem;
+      list-style-type: none; }
+      .header__nav__list__item__link {
+        text-decoration: none;
+        color: #fff;
+        font-family: stoney;
+        transition: all 0.4s;
+        font-size: 15px;
+        text-shadow: 0 0 10px #fff;
+        animation: 1s ease-in-out onLoadShadowWhite forwards; }
+        .header__nav__list__item__link:hover {
+          color: #dada4d;
+          text-shadow: 0 0 10px #dada4d; }
+      @media screen and (max-width: 767px) {
+        .header__nav__list {
+          position: fixed;
+          left: 0;
+          background-color: #070a0d;
+          width: 100%;
+          padding-block: 3.5rem;
+          transition: all 0.4s !important; } }
+      @media screen and (min-width: 767px) {
+        .header__nav__list {
+          flex-direction: row;
+          column-gap: 2rem; } }
+    .header__nav__close {
+      position: absolute;
+      right: 1.7rem;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      padding-top: 25px;
+      transition: all 0.4s; }
+    .header__nav__toggle {
+      cursor: pointer; }
+    @media screen and (min-width: 768px) {
+      .header__nav__close, .header__nav__toggle {
+        display: none; }
+      .header__nav__logo {
+        font-size: 15px; } }
+    @media screen and (min-width: 992px) {
+      .header__nav__logo {
+        font-size: 20px; }
+      .header__nav__list__item__link {
+        font-size: 18px; } }
+    @media screen and (min-width: 1000px) {
+      .header__nav__logo {
+        font-size: 30px; }
+      .header__nav__list__item__link {
+        font-size: 20px; } }
+
+@keyframes onLoadShadowYellow {
+  from {
+    text-shadow: 0 0 0px #dada4d; }
+  to {
+    text-shadow: 0 0 10px #dada4d; } }
+@keyframes onLoadShadowWhite {
+  from {
+    text-shadow: 0 0 0px #fff; }
+  to {
+    text-shadow: 0 0 10px #fff; } }
+.bg-header {
+  background: #070a0d;
+  z-index: 1; }
+
+/*# sourceMappingURL=Header.css.map */

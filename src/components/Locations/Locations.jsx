@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 // import component styles
-import "./Locations.scss";
+import "./Locations.css";
 
 // Pagination import 
 import Pagination from '@mui/material/Pagination';
@@ -59,7 +59,7 @@ const Locations = () => {
       <div className="locations__container container">
 
         {/* Title */}
-        <h1 className="locations__container__title">Locations</h1>
+        <h1 className="container__title">Locations</h1>
 
         {/* Filters */}
         <Filter
@@ -74,14 +74,14 @@ const Locations = () => {
         />
 
         {/* Render locations */}
-        <ul className="locations__container__list">
+        <ul className="container__list">
           {locations.map((item, key) => {
             return (
-              <li key={key} className="locations__container__list__item">
-                <h1 className="locations__container__list__item__name">{item.name}</h1>
-                <h3 className="locations__container__list__item__type">Type: <span>{item.type}</span></h3>
-                <h3 className="locations__container__list__item__dimension">Dimension: <span>{item.dimension}</span></h3>
-                <p className="locations__container__list__item__url">Watch the <a target="_blank" rel="noreferrer" href={item.url}>location</a></p>
+              <li key={key} className="list__item">
+                <h1 className="item__name">{item.name}</h1>
+                <h3 className="item__type">Type: <span>{item.type}</span></h3>
+                <h3 className="item__dimension">Dimension: <span>{item.dimension}</span></h3>
+                <p className="item__url">Watch the <a target="_blank" rel="noreferrer" href={item.url}>location</a></p>
               </li>
             );
           })}
@@ -89,7 +89,7 @@ const Locations = () => {
 
         {/* Pagination */}
         <Pagination
-          className='locations__container__pagination container__navigation'
+          className='container__pagination container__navigation'
           count={pagesCount}
           page={page}
           onChange={PaginationChange}

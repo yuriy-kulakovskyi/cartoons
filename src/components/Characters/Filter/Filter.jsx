@@ -1,32 +1,40 @@
 import React from "react";
 
-const Filter = filters => {
+const Filter = props => {
 
   const handleSelectChange = e => {
-    if (e.target.name === "Species") {
-      filters.setSpecies(e.target.value);
+    const { name, value } = e.target;
+  
+    switch (name) {
+      case "Species":
+        props.setSpecies(value);
+        break;
+  
+      case "Status":
+        props.setStatus(value);
+        break;
+  
+      case "Gender":
+        props.setGender(value);
+        break;
+  
+      default:
+        break;
     }
-
-    if (e.target.name === "Status") {
-      filters.setStatus(e.target.value);
-    }
-
-    if (e.target.name === "Gender") {
-      filters.setGender(e.target.value);
-    }
-  }
+  };
+  
 
   const handleSelectAll = () => {
-    filters.setSpecies("");
-    filters.setStatus("");
-    filters.setGender("");
+    props.setSpecies("");
+    props.setStatus("");
+    props.setGender("");
   }
 
   return (
     <div className="form">
       <select name="Species" className='form__select' onChange={handleSelectChange}>
         <option value="" selected>Species</option>
-        {filters.species.map((item, key) => {
+        {props.species.map((item, key) => {
           return (
             <option key={key} value={item}>{item}</option>
           )
@@ -35,7 +43,7 @@ const Filter = filters => {
   
       <select name="Status" className='form__select' onChange={handleSelectChange}>
         <option value="" selected>Status</option>
-          {filters.status.map((item, key) => {
+          {props.status.map((item, key) => {
             return (
               <option key={key} value={item}>{item}</option>
             )
@@ -44,7 +52,7 @@ const Filter = filters => {
   
       <select name="Gender" className='form__select' onChange={handleSelectChange}>
         <option value="" selected>Gender</option>
-          {filters.gender.map((item, key) => {
+          {props.gender.map((item, key) => {
             return (
               <option key={key} value={item}>{item}</option>
             )

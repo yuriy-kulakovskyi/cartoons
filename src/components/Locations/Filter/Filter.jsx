@@ -29,25 +29,25 @@ const Filter = filters => {
   }
 
   return (
-    <div className='locations__container__filters'>
+    <div className='container__filters'>
       {/* Names filter */}
       <input 
         value={filters.name}
         type="text"
         placeholder='Search by the name'
-        className='locations__container__filters__input'
+        className='filters__input'
         onChange={e => filters.setName(e.target.value)}
         onClick={inputClickHandler}
       />
 
       {/* Dropdown menu */}
-      <ul className='locations__container__filters__dropdown'>
+      <ul className='filters__dropdown'>
         {filters.name && isOpen ? filters.locations.map((item, key) => {
           return (
               <li
                 onClick={itemClickHandler}
                 key={key}
-                className='locations__container__filters__dropdown__item'
+                className='dropdown__item'
               >
                 {item.name}
               </li>
@@ -62,14 +62,14 @@ const Filter = filters => {
         {/* Types filter */}
         <select 
           name="Type" 
-          className='locations__container__filters__select' 
+          className='filters__select' 
           onChange={handleSelectChange}
         >
           <option 
             selected
             disabled
             value="All"
-            className="locations__container__filters__select__option"
+            className="select__option"
           >
             Type
           </option>
@@ -78,7 +78,7 @@ const Filter = filters => {
               <option 
                 key={key}
                 value={item} 
-                className="locations__container__filters__select__option"
+                className="select__option"
               >
                 {item}
               </option>
@@ -89,14 +89,14 @@ const Filter = filters => {
         {/* Dimensions filter */}
         <select 
           name="Dimension" 
-          className='locations__container__filters__select'
+          className='filters__select'
           onChange={handleSelectChange}
         >
           <option 
             selected
             disabled
             value="All"
-            className="locations__container__filters__select__option"
+            className="select__option"
           >
             Dimension
           </option>
@@ -105,7 +105,7 @@ const Filter = filters => {
               <option 
                 key={key}
                 value={item} 
-                className="locations__container__filters__select__option"
+                className="select__option"
               >
                 {item}
               </option>
@@ -116,7 +116,7 @@ const Filter = filters => {
 
       {/* Show All button */}
       <button 
-        className='locations__container__filters__button'
+        className='filters__button'
         onClick={handleClick}
       >
         Show All

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Typed from 'react-typed';
-import './Main.scss';
+import './Main.css';
 import aos from 'aos';
 import 'aos/dist/aos.css';
 

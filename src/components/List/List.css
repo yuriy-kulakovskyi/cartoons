@@ -1,0 +1,116 @@
+@font-face {
+  font-family: stoney;
+  src: url("../../assets/fonts/stoney-billy/STONB___.TTF"); }
+.watchList {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0c1215; }
+  .watchList__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 0;
+    gap: 2rem; }
+    .watchList__container .container__title {
+      font-family: stoney;
+      color: #dada4d;
+      text-shadow: 0 0 10px #dada4d; }
+    .watchList__container .container__noTodo {
+      color: #fff;
+      font-family: "Montserrat Alternates";
+      font-size: 22px;
+      text-align: center;
+      font-weight: 800; }
+    .watchList__container .container__todo {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 20px;
+      width: 90%; }
+      .watchList__container .container__todo .todo__item {
+        background-color: #dada4d;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #dada4d; }
+        .watchList__container .container__todo .todo__item .item__checkbox {
+          border: 3px solid #fff;
+          width: 18px;
+          height: 15px;
+          cursor: pointer;
+          transition: all 0.4s; }
+        .watchList__container .container__todo .todo__item .item__checked-false {
+          border-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%) 1; }
+          .watchList__container .container__todo .todo__item .item__checked-false:hover {
+            border-image: linear-gradient(-147deg, #FFE53B 0%, #FF2525 74%) 1; }
+        .watchList__container .container__todo .todo__item .item__checked-true {
+          border-image: linear-gradient(-47deg, #85FFBD 0%, #FFFB7D 100%) 1; }
+          .watchList__container .container__todo .todo__item .item__checked-true:hover {
+            border-image: linear-gradient(47deg, #85FFBD 0%, #FFFB7D 100%) 1; }
+        .watchList__container .container__todo .todo__item .item__name {
+          width: 100%;
+          padding-left: 1rem;
+          color: #fff;
+          font-family: "Montserrat Alternates";
+          font-weight: 800;
+          font-size: 18px;
+          cursor: pointer; }
+        .watchList__container .container__todo .todo__item .item__delete {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          transition: all 0.4s; }
+          .watchList__container .container__todo .todo__item .item__delete svg {
+            fill: gray; }
+          .watchList__container .container__todo .todo__item .item__delete:hover svg {
+            fill: #ffb13b; }
+    .watchList__container .row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem; }
+    .watchList__container .container__input {
+      background-color: transparent;
+      border: 1px solid #fff;
+      box-shadow: 0 0 5px #fff;
+      padding: 1rem 1.5rem;
+      font-family: "Montserrat Alternates";
+      font-size: 17px;
+      border-radius: 10px;
+      color: #dada4d; }
+      .watchList__container .container__input:focus {
+        outline: none; }
+    .watchList__container .container__button {
+      background-color: #dada4d;
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+      border: none;
+      color: #fff;
+      font-size: 30px;
+      font-family: 'Montserrat Alternates';
+      font-weight: 400;
+      cursor: pointer;
+      user-select: none; }
+      .watchList__container .container__button:hover {
+        box-shadow: 0 0 5px #dada4d; }
+    .watchList__container .container__dropdown {
+      width: 100%;
+      list-style-type: none;
+      background-color: #fff; }
+      .watchList__container .container__dropdown .dropdown__item {
+        padding: 1rem 1.5rem;
+        font-size: 17px;
+        font-family: 'Montserrat Alternates';
+        font-weight: 600;
+        cursor: pointer; }
+        .watchList__container .container__dropdown .dropdown__item:hover {
+          background-color: #dada4d; }
+
+/*# sourceMappingURL=List.css.map */

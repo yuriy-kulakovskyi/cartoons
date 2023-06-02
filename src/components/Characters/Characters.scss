@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: stoney;
-  src: url("..//assets/stoney-billy/STONB___.TTF");
+  src: url("../../assets/fonts/stoney-billy/STONB___.TTF");
 }
 
 .characters {
@@ -45,7 +45,7 @@
       }
     }
 
-    &__title {
+    .container__title {
       font-family: stoney;
       color: $yellow;
       text-align: center;
@@ -53,12 +53,12 @@
       font-size: 30px;
     }
 
-    &__pagination {
+    .container__pagination {
       display: grid!important;
       grid-template-columns: repeat(1, 1fr);
       gap: 3rem;
 
-      &__character {
+      .pagination__character {
         @include flexSpaceBetween();
         flex-direction: column;
         background-color: $yellow;
@@ -79,7 +79,7 @@
           background-color: #444040;
         }
 
-        &__button {
+        .character__button {
           position: absolute;
           top: 0; left: 0;
           border-radius: 30px;
@@ -88,7 +88,7 @@
           opacity: 0;
         }
 
-        &__image {
+        .character__image {
           border-radius: 100%;
           width: 150px; height: 150px;
           border: 3px solid #fff;
@@ -96,10 +96,10 @@
           padding: 5px;
         }
 
-        &__addInfo {
+        .character__addInfo {
           width: 100%;
 
-          &__name {
+          .addInfo__name {
             font-family: "Montserrat Alternates";
             font-weight: 800;
             color: #444040;
@@ -107,11 +107,11 @@
             font-size: 17px;
           }
 
-          &__location {
+          .addInfo__location {
             font-size: 15px;
           }
 
-          &__location, &__species, &__status, &__gender{
+          .addInfo__location, .addInfo__species, .addInfo__status, .addInfo__gender{
             font-family: "Montserrat Alternates";
             font-weight: 600;
             color: #605b5b;
@@ -135,7 +135,7 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    &__container__pagination {
+    .container__pagination {
       grid-template-columns: repeat(2, 1fr);
     }
   }

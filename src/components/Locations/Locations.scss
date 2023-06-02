@@ -5,7 +5,7 @@
 // font family Stoney face
 @font-face {
   font-family: stoney;
-  src: url("..//assets/stoney-billy/STONB___.TTF");
+  src: url("../../assets/fonts/stoney-billy/STONB___.TTF");
 }
 
 .locations {
@@ -18,7 +18,7 @@
     flex-direction: column;
     gap: 30px;
 
-    &__title {
+    .container__title {
       font-family: stoney;
       color: $yellow;
       text-shadow: 0 0 5px $yellow;
@@ -27,13 +27,13 @@
     }
 
     // Filter styles 
-    &__filters {
+    .container__filters {
       width: 100%;
       @include flexCenter();
       flex-direction: column;
 
       // Input styles
-      &__input {
+      .filters__input {
         background-color: transparent;
         border: 1px solid $yellow;
         box-shadow: 0 0 5px $yellow;
@@ -53,12 +53,12 @@
       }
 
       // Dropdown styles 
-      &__dropdown {
+      .filters__dropdown {
         position: relative;
         background-color: #fff;
         list-style-type: none;
 
-        &__item {
+        .dropdown__item {
           padding: 20px;
           font-family: "Montserrat Alternates";
 
@@ -70,7 +70,7 @@
       }
 
       // Select styles
-      &__select, &__button {
+      .filters__select, .filters__button {
         max-width: 100px;
         padding: 10px 20px;
         border-radius: 10px;
@@ -83,7 +83,7 @@
         border: none;
       }
 
-      &__button {
+      .filters__button {
         min-width: 150px;
         padding: 15px 0;
       }
@@ -96,14 +96,14 @@
       gap: 30px;
     }
 
-    &__list {
+    .container__list {
       list-style-type: none;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 20px;
       width: 90%;
 
-      &__item {
+      .list__item {
         width: 100%;
         background-color: $yellow;
         border-radius: 10px;
@@ -116,7 +116,7 @@
           opacity: .7!important;
         }
 
-        &__name {
+        .item__name {
           color: #fff;
           text-align: center;
           font-family: "Montserrat Alternates";
@@ -124,7 +124,7 @@
           font-size: 25px;
         }
 
-        &__type, &__dimension, &__url {
+        .item__type, .item__dimension, .item__url {
           color: #fff;
           font-family: "Montserrat Alternates";
           font-weight: 600;
@@ -150,14 +150,14 @@
 
   // Media queries
   @media screen and (min-width: 992px) {
-    &__container {
-      &__list {
-        &__item {
-          &__name {
+    .locations__container {
+     .container__list {
+        .list__item {
+          .item__name {
             font-size: 30px;
           }
 
-          &__type, &__dimension, &__url {
+          .item__type, .item__dimension, .item__url {
             font-size: 30px;
 
             span {

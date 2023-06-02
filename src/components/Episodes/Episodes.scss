@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: stoney;
-  src: url("..//assets/stoney-billy/STONB___.TTF");
+  src: url("../../assets/fonts/stoney-billy/STONB___.TTF");
 }
 
 .episodes {
@@ -16,7 +16,7 @@
     flex-direction: column;
     gap: 1.5rem;
 
-    &__title {
+    .container__title {
       text-align: center;
       font-family: stoney;
       color: $yellow;
@@ -31,7 +31,7 @@
       position: relative;
     }
 
-    &__input {
+    .container__input {
       background-color: transparent;
       border: 1px solid $yellow;
       font-family: "Montserrat Alternates";
@@ -51,12 +51,12 @@
       }
     }
 
-    &__dropdown {
+    .container__dropdown {
       width: 100%;
       background-color: #fff;
       list-style-type: none;
 
-      &__item {
+      .dropdown__item {
         cursor: pointer;
         width: 100%; height: 50px;
         @include flexJustifyCenterStart();
@@ -69,11 +69,11 @@
       }
     }
 
-    &__episodes-wrap {
+    .container__episodes-wrap {
       width: 100%;
       padding: 0 2rem;
 
-      &__episode {
+      .episodes-wrap__episode {
         width: 100%;
         margin-top: 2rem;
         padding: 1rem 2rem;
@@ -141,28 +141,28 @@
   }
 
   @media screen and (min-width: 768px) {
-    &__container__episodes-wrap {
+    .container__episodes-wrap {
       width: 80%;
     }
   }
 
   @media screen and (min-width: 768px) {
-    &__container__episodes-wrap__episode {
-      &__number {
+    .episodes-wrap__episode {
+      .episode__number {
         width: 100%;
         font-size: 29px;
         text-align: center;
       }
 
-      &__name {
+      .episode____name {
         font-size: 28px;
       }
 
-      &__airDate {
+      .episode____airDate {
         font-size: 25px;
       }
 
-      &__url {
+      .episode____url {
         font-size: 24px;
       }
     }

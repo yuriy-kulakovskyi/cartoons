@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Characters.scss';
+import './Characters.css';
 import aos from 'aos';
 import 'aos/dist/aos.css';
 
@@ -29,9 +29,21 @@ const Characters = () => {
   
   const [page, setPage] = useState(1);
 
-  const handleClickOpen = props => {
+  const handleClickOpen = character => {
     setOpen(true);
-    setInfo(props.target.nextSibling.firstChild.innerHTML);
+
+    setInfo(
+      {
+        image: character.image,
+        name: character.name,
+        episode: character.episode[0],
+        gender: character.gender,
+        location: character.location.name,
+        species: character.species,
+        status: character.status,
+      }
+    );
+
     document.body.style.overflow = 'hidden';
     document.querySelector(".hide").style.opacity = '.5';
   };
@@ -82,7 +94,7 @@ const Characters = () => {
   return (
     <section className="characters" id='characters'>
       <div className="characters__container container">
-        <h1 className="characters__container__title">Characters</h1>
+        <h1 className="container__title">Characters</h1>
 
         {/* Filter */}
         <Filter
@@ -95,42 +107,19 @@ const Characters = () => {
           setGender={setGender}
         />
 
-        <Stack spacing={2} className="characters__container__pagination hide">
+        <Stack spacing={2} className="container__pagination hide">
           {characters.map((item, key) => {
             return (
-              <div data-aos="fade-right" className='characters__container__pagination__character' key={key}>
-                <button variant="outlined" className='characters__container__pagination__character__button' onClick={handleClickOpen}></button>
-                <div className="characters__container__pagination__character__allInfo" style={{ display: "none" }}>
-                  <ul>
-                    <img src={item.image} alt={key + "image"} />
-                    <li>
-                      Name: <span>{item.name}</span>
-                    </li>
-                    <li>
-                      Watch the <a target="_blank" rel="noreferrer" href={item.episode[0]}>episode</a>
-                    </li>
-                    <li>
-                      Gender: <span>{item.gender}</span>
-                    </li>
-                    <li>
-                      Location: <span>{item.location.name}</span>
-                    </li>
-                    <li>
-                      Species: <span>{item.species}</span>
-                    </li>
-                    <li>
-                      Status: <span>{item.status}</span>
-                    </li>
-                  </ul>
-                </div>
+              <div data-aos="fade-right" className='pagination__character' key={key}>
+                <button variant="outlined" className='character__button' onClick={() => handleClickOpen(item)}></button>
 
-                <img src={item.image} alt={"image" + key} className="characters__container__pagination__character__image" />
-                <div className="characters__container__pagination__character__addInfo">
-                  <h2 className="characters__container__pagination__character__addInfo__name">{item.name}</h2>
-                  <h3 className="characters__container__pagination__character__addInfo__location">From <span>{item.location.name}</span></h3>
-                  <p className="characters__container__pagination__character__addInfo__species">Species <span>{item.species}</span></p>
-                  <p className="characters__container__pagination__character__addInfo__status">Status <span>{item.status}</span></p>
-                  <p className="characters__container__pagination__character__addInfo__gender">Gender <span>{item.gender}</span></p>
+                <img src={item.image} alt={"image" + key} className="character__image" />
+                <div className="character__addInfo">
+                  <h2 className="addInfo__name">{item.name}</h2>
+                  <h3 className="addInfo__location">From <span>{item.location.name}</span></h3>
+                  <p className="addInfo__species">Species <span>{item.species}</span></p>
+                  <p className="addInfo__status">Status <span>{item.status}</span></p>
+                  <p className="addInfo__gender">Gender <span>{item.gender}</span></p>
                 </div>
               </div>
             )

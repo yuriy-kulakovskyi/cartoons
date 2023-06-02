@@ -1,0 +1,40 @@
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 2rem;
+  left: 0; }
+  .footer__container__social-links {
+    list-style-type: none;
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .footer__container__social-links__item__link {
+      color: #a5a1a1;
+      transition: all 0.4s; }
+      .footer__container__social-links__item__link:hover {
+        color: #fff; }
+  @media screen and (min-width: 768px) {
+    .footer {
+      left: 85%;
+      bottom: 0;
+      height: 100%;
+      width: 15%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .footer__container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .footer__container__social-links {
+          flex-direction: column;
+          height: 50%; }
+          .footer__container__social-links__item__link svg {
+            width: 35px;
+            height: 35px; } }
+
+/*# sourceMappingURL=Footer.css.map */

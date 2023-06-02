@@ -5,7 +5,7 @@
 // Stoney font 
 @font-face {
   font-family: stoney;
-  src: url("..//assets/stoney-billy/STONB___.TTF");
+  src: url("../../assets/fonts/stoney-billy/STONB___.TTF");
 }
 
 // My Watch List section
@@ -21,14 +21,14 @@
     gap: 2rem;
 
     // Title
-    &__title {
+    .container__title {
       font-family: stoney;
       color: $yellow;
       text-shadow: 0 0 10px $yellow;
     }
 
     // noTodo
-    &__noTodo {
+    .container__noTodo {
       color: #fff;
       font-family: "Montserrat Alternates";
       font-size: 22px;
@@ -37,13 +37,13 @@
     }
 
     // ToDo
-    &__todo {
+    .container__todo {
       @include flexCenterStart();
       flex-direction: column;
       gap: 20px;
       width: 90%;
 
-      &__item {
+      .todo__item {
         background-color: $yellow;
         width: 100%;
         @include flexSpaceBetween();
@@ -51,14 +51,14 @@
         border-radius: 10px;
         box-shadow: 0 0 10px $yellow;
 
-        &__checkbox {
+        .item__checkbox {
           border: 3px solid #fff;
           width: 18px; height: 15px;
           cursor: pointer;
           transition: $transition;
         }
 
-        &__checked-false {
+        .item__checked-false {
           border-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%) 1;
 
           &:hover {
@@ -66,7 +66,7 @@
           }
         }
 
-        &__checked-true {
+        .item__checked-true {
           border-image: linear-gradient(-47deg, #85FFBD 0%, #FFFB7D 100%) 1; 
           
           &:hover {
@@ -74,7 +74,7 @@
           }
         }
 
-        &__name {
+        .item__name {
           width: 100%;
           padding-left: 1rem;
           color: #fff;
@@ -84,7 +84,7 @@
           cursor: pointer;
         }
 
-        &__delete {
+        .item__delete {
           background-color: transparent;
           border: none;
           cursor: pointer;
@@ -109,7 +109,7 @@
       gap: 1rem;
     }
 
-    &__input {
+    .container__input {
       background-color: transparent;
       border: 1px solid #fff;
       box-shadow: 0 0 5px #fff;
@@ -124,7 +124,7 @@
       }
     }
 
-    &__button {
+    .container__button {
       background-color: $yellow;
       border-radius: 100%;
       width: 40px; height: 40px;
@@ -141,12 +141,12 @@
       }
     }
 
-    &__dropdown {
+    .container__dropdown {
       width: 100%;
       list-style-type: none;
       background-color: #fff;
 
-      &__item {
+      .dropdown__item {
         padding: 1rem 1.5rem;
         font-size: 17px;
         font-family: 'Montserrat Alternates';

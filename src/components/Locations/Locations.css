@@ -1,0 +1,115 @@
+@font-face {
+  font-family: stoney;
+  src: url("../../assets/fonts/stoney-billy/STONB___.TTF"); }
+.locations {
+  width: 100%;
+  background-color: #0c1215; }
+  .locations__container {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px; }
+    .locations__container .container__title {
+      font-family: stoney;
+      color: #dada4d;
+      text-shadow: 0 0 5px #dada4d;
+      text-align: center;
+      font-size: 30px; }
+    .locations__container .container__filters {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; }
+      .locations__container .container__filters .filters__input {
+        background-color: transparent;
+        border: 1px solid #dada4d;
+        box-shadow: 0 0 5px #dada4d;
+        color: #dada4d;
+        border-radius: 10px;
+        font-family: "Montserrat Alternates";
+        font-size: 20px;
+        padding: 10px 20px; }
+        .locations__container .container__filters .filters__input::placeholder {
+          color: #fff; }
+        .locations__container .container__filters .filters__input:focus {
+          outline: none; }
+      .locations__container .container__filters .filters__dropdown {
+        position: relative;
+        background-color: #fff;
+        list-style-type: none; }
+        .locations__container .container__filters .filters__dropdown .dropdown__item {
+          padding: 20px;
+          font-family: "Montserrat Alternates"; }
+          .locations__container .container__filters .filters__dropdown .dropdown__item:hover {
+            background-color: #dada4d;
+            cursor: pointer; }
+      .locations__container .container__filters .filters__select, .locations__container .container__filters .filters__button {
+        max-width: 100px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        background-color: #dada4d;
+        font-family: "Montserrat Alternates";
+        font-weight: 800;
+        font-size: 14px;
+        cursor: pointer;
+        border: none; }
+      .locations__container .container__filters .filters__button {
+        min-width: 150px;
+        padding: 15px 0; }
+    .locations__container .selects {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      gap: 30px; }
+    .locations__container .container__list {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      width: 90%; }
+      .locations__container .container__list .list__item {
+        width: 100%;
+        background-color: #dada4d;
+        border-radius: 10px;
+        padding: 1rem 2rem;
+        box-shadow: 0 0 15px #dada4d;
+        cursor: pointer;
+        transition: all 0.4s !important; }
+        .locations__container .container__list .list__item:hover {
+          opacity: 0.7 !important; }
+        .locations__container .container__list .list__item .item__name {
+          color: #fff;
+          text-align: center;
+          font-family: "Montserrat Alternates";
+          font-weight: 700;
+          font-size: 25px; }
+        .locations__container .container__list .list__item .item__type, .locations__container .container__list .list__item .item__dimension, .locations__container .container__list .list__item .item__url {
+          color: #fff;
+          font-family: "Montserrat Alternates";
+          font-weight: 600;
+          font-size: 20px;
+          margin-top: 10px; }
+          .locations__container .container__list .list__item .item__type span, .locations__container .container__list .list__item .item__dimension span, .locations__container .container__list .list__item .item__url span {
+            color: #fff;
+            font-family: "Montserrat Alternates";
+            font-weight: 800;
+            font-size: 20px; }
+          .locations__container .container__list .list__item .item__type a, .locations__container .container__list .list__item .item__dimension a, .locations__container .container__list .list__item .item__url a {
+            color: #0c1215;
+            text-decoration: none;
+            font-family: "Montserrat Alternates"; }
+  @media screen and (min-width: 992px) {
+    .locations .locations__container .container__list .list__item .item__name {
+      font-size: 30px; }
+    .locations .locations__container .container__list .list__item .item__type, .locations .locations__container .container__list .list__item .item__dimension, .locations .locations__container .container__list .list__item .item__url {
+      font-size: 30px; }
+      .locations .locations__container .container__list .list__item .item__type span, .locations .locations__container .container__list .list__item .item__dimension span, .locations .locations__container .container__list .list__item .item__url span {
+        font-size: 30px; } }
+
+/*# sourceMappingURL=Locations.css.map */

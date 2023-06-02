@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Header.scss';
+import './Header.css';
 import aos from 'aos';
 import 'aos/dist/aos.css';
 
 const Header = () => {
-  const [visibility, setVisibility] = useState("-100%");
+  const [isVisible, setIsVisible] = useState(false);
   const header = useRef();
 
   const showMenu = () => {
-    setVisibility("0");
+    setIsVisible(true);
   }
 
   const hideMenu = () => {
-    setVisibility("-100%");
+    setIsVisible(false);
   }
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const Header = () => {
         <a href='#home' className="header__nav__logo" data-aos="fade-right">Rick and Morty</a>
 
         {/* Nav menu */}
-        <ul className="header__nav__list" data-aos="fade-left" style={{top: visibility}}>
+        <ul className="header__nav__list" data-aos="fade-left" style={{top: isVisible ? "0" : "-100%"}}>
           <li className="header__nav__list__item">
             <a href="#characters" className='header__nav__list__item__link'>Characters</a>
           </li>
@@ -47,7 +47,7 @@ const Header = () => {
         </ul>
 
         {/* Close button */}
-        <svg className="header__nav__close" onClick={hideMenu} viewport="0 0 12 12" version="1.1" style={{top: visibility}}
+        <svg className="header__nav__close" onClick={hideMenu} viewport="0 0 12 12" version="1.1" style={{top: isVisible ? "0" : "-100%"}}
           xmlns="http://www.w3.org/2000/svg">
           <line x1="1" y1="11"
             x2="11" y2="1"

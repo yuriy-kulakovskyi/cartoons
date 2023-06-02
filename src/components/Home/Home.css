@@ -1,0 +1,10 @@
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("./img/background.webp");
+  background-size: cover;
+  background-position: center; }
+  .home__container {
+    z-index: 1; }
+
+/*# sourceMappingURL=Home.css.map */
