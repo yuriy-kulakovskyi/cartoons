@@ -4,8 +4,6 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 
 const Popup = ({ isOpen, info, handleClose }) => {
-  console.log(info);
-
   if (isOpen) {
     return (
       <div className='popup'>
