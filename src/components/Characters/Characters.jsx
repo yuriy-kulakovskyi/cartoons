@@ -10,7 +10,7 @@ import Filter from './Filter/Filter';
 import Popup from './Popup/Popup';
 
 // API link
-const API = "https://rickandmortyapi.com/api/character/"
+const API = "https://rickandmortyapi.com/api/character/";
 
 const Characters = () => {
   const [pages, setPages] = useState(0);
@@ -80,16 +80,7 @@ const Characters = () => {
   }, [gender, species, status, page]);
 
 
-  const PaginationChange = (event, page) => {
-    setPage(page);
-  
-    fetch(API + `?page=${page}&species=${species}&status=${status}&gender=${gender}`)
-    .then(response => response.json())
-    .then(data => {
-      setPages(data.info.pages);
-      setCharacters(data.results);
-    })
-  }
+  const PaginationChange = (event, page) => setPage(page);
 
   return (
     <section className="characters" id='characters'>
