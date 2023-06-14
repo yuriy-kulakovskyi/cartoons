@@ -7,6 +7,9 @@ import "./Locations.css";
 import Pagination from '@mui/material/Pagination';
 import Filter from './Filter/Filter';
 
+// API
+const API = "https://rickandmortyapi.com/api/character/";
+
 const Locations = () => {
   const [pagesCount, setPagesCount] = useState(1);
   const [page, setPage] = useState(1);
@@ -20,7 +23,7 @@ const Locations = () => {
   const [dimension, setDimension] = useState("");
 
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/location/?page=${page}name=${name}&type=${type}&dimension=${dimension}`)
+    fetch(API + `?page=${page}&name=${name}&type=${type}&dimension=${dimension}`)
     .then(res => res.json())
     .then(data => {
       setPagesCount(data.info.pages);
@@ -40,16 +43,7 @@ const Locations = () => {
     })
   }, [dimension, name, type, page]);
 
-  const PaginationChange = (event, page) => {
-    setPage(page);
-
-    fetch(`https://rickandmortyapi.com/api/location/?page=${page}&name=${name}&type=${type}&dimension=${dimension}`)
-      .then(response => response.json())
-      .then(data => {
-        setPagesCount(data.info.pages);
-        setLocations(data.results);
-      })
-  }
+  const PaginationChange = (event, page) => setPage(page);
 
   // HTML
   return (
